@@ -1,7 +1,7 @@
 import sqlite3
 
 # Cria uma conexão com o banco de dados
-conn = sqlite3.connect('atividade_1/db/atividade_1.db')
+conn = sqlite3.connect('atividade_1/exercicio_2/db/atividade_1.db')
 
 # Cria um cursor para manipular o banco de dados
 cursor = conn.cursor()
