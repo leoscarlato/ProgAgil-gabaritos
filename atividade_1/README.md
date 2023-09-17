@@ -15,11 +15,11 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Resultado**
    <br>
    <br>
-   "ReCore"	"XOne"	"2016,0"	"Action"	"Microsoft Game Studios"	"0,06"	"0,03"	"0,0"	"0,1"<br><br>
-  "Tom Clancy's The Division"	"XOne"	"2016,0"	"Shooter"	"Ubisoft"	"1,2"	"0,62"	"0,0"	"2,01"<br><br>
-  "Valentino Rossi: The Game"	"XOne"	"2016,0"	"Racing"	"Namco Bandai Games"	"0,0"	"0,02"	"0,0"	"0,02"<br><br>
-  "The Technomancer"	"XOne"	"2016,0"	"Role-Playing"	"Focus Home Interactive"	"0,01"	"0,01"	"0,0"	"0,02"<br><br>
-  "Dead Island Definitive Collection"	"XOne"	"2016,0"	"Action"	"Deep Silver"	"0,02"	"0,02"	"0,0"	"0,04"<br><br>
+	   "ReCore"	"XOne"	"2016,0"	"Action"	"Microsoft Game Studios"	"0,06"	"0,03"	"0,0"	"0,1"<br><br>
+	  "Tom Clancy's The Division"	"XOne"	"2016,0"	"Shooter"	"Ubisoft"	"1,2"	"0,62"	"0,0"	"2,01"<br><br>
+	  "Valentino Rossi: The Game"	"XOne"	"2016,0"	"Racing"	"Namco Bandai Games"	"0,0"	"0,02"	"0,0"	"0,02"<br><br>
+	  "The Technomancer"	"XOne"	"2016,0"	"Role-Playing"	"Focus Home Interactive"	"0,01"	"0,01"	"0,0"	"0,02"<br><br>
+	  "Dead Island Definitive Collection"	"XOne"	"2016,0"	"Action"	"Deep Silver"	"0,02"	"0,02"	"0,0"	"0,04"<br><br>
 
 
 
