@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('atividade_2/db/atividade_2.db')
+conn = sqlite3.connect('atividade_3/db/atividade_3.db')
 
 cursor = conn.cursor()
 
