@@ -38,3 +38,5 @@ Neste exercício, você implementará algumas funções matemáticas simples e e
 
 A proposta da atividade pode ser encontrada em:
 [Atividade 4](https://github.com/Tiagoeem/pytest_aps4_bcc_2023_2)
+
+Para rodar os testes, simplesmente digite "pytest" no terminal, estando dentro da pasta "projeto_matematico"
