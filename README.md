@@ -28,6 +28,10 @@ Neste exercício, você aprimorará a aplicação web da biblioteca que foi dese
 A proposta da atividade pode ser encontrada em:
 [Atividade 3](https://github.com/Tiagoeem/flask-rest-sqlite-projagil2023)
 
+OBS: No Gabarito dessa entrega você vai encontrar um arquivo JSON contendo a Postman Collection utilizada para testar as rotas. 
+
+Para testar no seu Postman, baixe e importe a coleção e rode sua aplicação. Os requests da coleção estão adaptados para testar todas as rotas propostas.
+
 ---
 ## Atividade 4
 Neste exercício, você implementará algumas funções matemáticas simples e escreverá testes para elas usando o pytest. Além disso, você tratará erros específicos e garantirá que certos requisitos sejam atendidos.
