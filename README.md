@@ -40,3 +40,12 @@ A proposta da atividade pode ser encontrada em:
 [Atividade 4](https://github.com/Tiagoeem/pytest_aps4_bcc_2023_2)
 
 Para rodar os testes, simplesmente digite "pytest" no terminal, estando dentro da pasta "projeto_matematico"
+
+---
+## Atividade 5
+Neste exercício, você deve implementar uma API REST robusta usando Flask e MongoDB. A API é um microserviço de empréstimo de bicicletas.
+
+A proposta da atividade pode ser encontrada em:
+[Atividade 5](https://github.com/Tiagoeem/APS_Mongo_ProjAgil_2023_2)
+
+Para testar a atividade, baixe e importe a coleção Postman na pasta da atividade, e rode com a sua aplicação. Os requests da coleção são feitos para testar todas as rotas propostas. Faça questão de acompanhar os resultados para ver se sua aplicação está funcionando.
