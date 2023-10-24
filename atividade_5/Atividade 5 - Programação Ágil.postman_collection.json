@@ -1,0 +1,556 @@
+{
+	"info": {
+		"_postman_id": "82baf8dc-47e2-4741-8e73-9b2c400805bf",
+		"name": "Atividade 5 - Programação Ágil",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27736031"
+	},
+	"item": [
+		{
+			"name": "testando para ver se a API funciona",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criando um Usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Eduardo Mendes Vaz\",\r\n    \"cpf\": \"999.666.999-66\",\r\n    \"data de nascimento\": \"27/01/2004\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tentando criar outro usuário com o mesmo cpf",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Rogério Matagal\",\r\n    \"cpf\": \"999.666.999-66\",\r\n    \"data de nascimento\": \"5/07/1986\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendo todos os Usuários",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificando um Usuário pelo ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios/65371a736798365b90fc0b57",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"65371a736798365b90fc0b57"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterando o cpf de um Usuário",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\": \"666.999.666-99\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios/65371a736798365b90fc0b57",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"65371a736798365b90fc0b57"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificando se o CPF foi trocado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios/65371a736798365b90fc0b57",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"65371a736798365b90fc0b57"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletando um Usuário pelo ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios/65371a736798365b90fc0b57",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"65371a736798365b90fc0b57"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criando outro Usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Julia Tiemi Silva Furusato\",\r\n    \"cpf\": \"666.666.666-66\",\r\n    \"data de nascimento\": \"18/02/2006\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criando uma Bicicleta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marca\": \"hyundai\",\r\n    \"modelo\": \"bicicletasso\",\r\n    \"cidade\": \"Cascavel\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendo todas as Bicicletas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificando uma Bicicleta pelo ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes/65371b9447ec7434cb498bbd",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes",
+						"65371b9447ec7434cb498bbd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterando uma bicicleta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marca\": \"BMX\",\r\n    \"cidade\": \"Veneza\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes/65371b9447ec7434cb498bbd",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes",
+						"65371b9447ec7434cb498bbd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificando se a Bicicleta foi Alterada",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes/65371b9447ec7434cb498bbd",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes",
+						"65371b9447ec7434cb498bbd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletando uma Bicicleta pelo ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes/65371b9447ec7434cb498bbd",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes",
+						"65371b9447ec7434cb498bbd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criando outra Bicicleta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marca\": \"BMW\",\r\n    \"modelo\": \"zoom zoom\",\r\n    \"cidade\": \"jaguapitanga\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criando um Empréstimo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/emprestimos/usuarios/65371b2a47ec7434cb498bbc/bikes/65371dcc05bf48a311344e9b",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"emprestimos",
+						"usuarios",
+						"65371b2a47ec7434cb498bbc",
+						"bikes",
+						"65371dcc05bf48a311344e9b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificando Empréstimos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/emprestimos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"emprestimos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificando se o Status da Bicicleta foi Alterado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes/65371dcc05bf48a311344e9b",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes",
+						"65371dcc05bf48a311344e9b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletando um Empréstimo por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/emprestimos/65371dd705bf48a311344e9c",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"emprestimos",
+						"65371dd705bf48a311344e9c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificando se a Bicicleta está Disponível Novamente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/bikes/65371dcc05bf48a311344e9b",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"bikes",
+						"65371dcc05bf48a311344e9b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -19,6 +19,11 @@ def create_usuario():
         data = request.json
         if not all(k in data for k in ("nome", "cpf", "data de nascimento")):
             return jsonify({"erro": "Campos obrigatórios faltando!"}), 400
+        
+        # verificamos se existe um usuário com o mesmo cpf, e se sim, retornamos um erro
+        usuario = mongo.db.usuarios.find_one({"cpf": data["cpf"]})
+        if usuario:
+            return {"erro": "Já existe um usuário com este CPF"}, 400
 
         usuario_id = mongo.db.usuarios.insert_one(data)
         print(usuario_id.inserted_id)
@@ -42,7 +47,7 @@ def get_usuarios():
     
 # leitura de usuarios por id
 @app.route('/usuarios/<id>', methods=['GET'])
-def get_usuario():
+def get_usuario(id):
     try:
         usuario = mongo.db.usuarios.find_one({"_id": ObjectId(id)})
         if usuario:
@@ -64,7 +69,7 @@ def update_usuario(id):
         usuario = mongo.db.usuarios.find_one({"_id": ObjectId(id)})
         if usuario:
             mongo.db.usuarios.update_one({"_id": ObjectId(id)}, {"$set": data})
-            return {"mensagem": "Usuário {id} alterado com sucesso"}, 200
+            return {"mensagem": f"Usuário {id} alterado com sucesso"}, 200
         else:
             return {"erro": "Usuário não encontrado"}, 404
     except Exception as e:
@@ -77,7 +82,7 @@ def delete_usuario(id):
         usuario = mongo.db.usuarios.find_one({"_id": ObjectId(id)})
         if usuario:
             mongo.db.usuarios.delete_one({"_id": ObjectId(id)})
-            return {"mensagem": "Usuário {id} removido com sucesso"}, 200
+            return {"mensagem": f"Usuário {id} removido com sucesso"}, 200
         else:
             return {"erro": "Usuário não encontrado"}, 404
     except Exception as e:
@@ -113,7 +118,7 @@ def get_bikes():
 
 # leitura de bicicletas por id
 @app.route('/bikes/<id>', methods=['GET'])
-def get_bike():
+def get_bike(id):
     try:
         bike = mongo.db.bikes.find_one({"_id": ObjectId(id)})
         if bike:
@@ -135,7 +140,7 @@ def update_bike(id):
         bike = mongo.db.bikes.find_one({"_id": ObjectId(id)})
         if bike:
             mongo.db.bikes.update_one({"_id": ObjectId(id)}, {"$set": data})
-            return {"mensagem": "Bicicleta {id} alterada com sucesso"}, 200
+            return {"mensagem": f"Bicicleta {id} alterada com sucesso"}, 200
         else:
             return {"erro": "Bicicleta não encontrada"}, 404
     except Exception as e:
@@ -148,7 +153,7 @@ def delete_bike(id):
         bike = mongo.db.bikes.find_one({"_id": ObjectId(id)})
         if bike:
             mongo.db.bikes.delete_one({"_id": ObjectId(id)})
-            return {"mensagem": "Bicicleta {id} removida com sucesso"}, 200
+            return {"mensagem": f"Bicicleta {id} removida com sucesso"}, 200
         else:
             return {"erro": "Bicicleta não encontrada"}, 404
     except Exception as e:
@@ -169,17 +174,31 @@ def create_emprestimo(id_usuario, id_bike):
 
         # atualizamos o status da bike para "em uso"
         data_bike = {"status": "em uso"}
-        mongo.db.bikes.update_one({"_id": ObjectId(id)}, {"$set": data_bike})
+        mongo.db.bikes.update_one({"_id": ObjectId(id_bike)}, {"$set": data_bike})
 
         # usamos a biblioteca datetime para obter a data e hora atual
-        current_datetime = datetime.now()
+        current_datetime = datetime.datetime.now()
         data = {"usuario": usuario["_id"], "bike": bike["_id"], "data_emprestimo": str(current_datetime.day) + "/" + str(current_datetime.month) + "/" + str(current_datetime.year)}
         emprestimo_id = mongo.db.emprestimos.insert_one(data)
-        mongo.db.bikes.update_one({"_id": ObjectId(id_bike)}, {"$set": {"status": "indisponível"}})
         return {"_id": str(emprestimo_id.inserted_id)}, 201
     except Exception as e:
         return {"erro":str(e)}, 500
     
+# leitura de emprestimos mostrando o id do usuario, da bicicleta e do emprestimo
+@app.route('/emprestimos', methods=['GET'])
+def get_emprestimos():
+    try:
+        filter_ = {}
+        projection_ = {}
+        emprestimos = list(mongo.db.emprestimos.find(filter_, projection_))
+        for emprestimo in emprestimos:
+            emprestimo["_id"] = str(emprestimo["_id"])
+            emprestimo["usuario"] = str(emprestimo["usuario"])
+            emprestimo["bike"] = str(emprestimo["bike"])
+        return {"emprestimos": emprestimos}, 200
+    except Exception as e:
+        return {"erro":str(e)}, 500
+
 # deletar um emprestimo por id
 @app.route('/emprestimos/<id>', methods=['DELETE'])
 def delete_emprestimo(id):
@@ -188,11 +207,11 @@ def delete_emprestimo(id):
 
         # lembrar de atualizar o status da bike para "disponível"
         data_bike = {"status": "disponível"}
-        mongo.db.bikes.update_one({"_id": ObjectId(id)}, {"$set": data_bike})
-        
+        mongo.db.bikes.update_one({"_id": ObjectId(emprestimo["bike"])}, {"$set": data_bike})
+
         if emprestimo:
             mongo.db.emprestimos.delete_one({"_id": ObjectId(id)})
-            return {"mensagem": "Empréstimo {id} removido com sucesso"}, 200
+            return {"mensagem": f"Empréstimo {id} removido com sucesso"}, 200
         else:
             return {"erro": "Empréstimo não encontrado"}, 404
     except Exception as e:
